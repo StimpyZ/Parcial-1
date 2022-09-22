@@ -1,0 +1,43 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestion de Empleados {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edicion de Empleados</h2><br>
+        <div class="card ">
+            <div class="card-body">
+                <form action="/edicionEmpleados/" method="POST"> {% csrf_token %}
+                    <div class="form-group py-2">
+                        <input type="number" id="txtCodigo" name="txtCodigo" value="{{empleado.codigo}}" class="form-control"  placeholder="Codigo" minlength="5" maxlength="20" required readonly>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtNombre" name="txtNombre" value="{{empleado.nombre}}" class="form-control" placeholder="Nombre" maxlength="50" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" id="txtApellido" name="txtApellido" value="{{empleado.apellido}}" class="form-control" placeholder="Apellido" maxlength="50" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="number" id="txtEdad" name="txtEdad" value="{{empleado.edad}}" class="form-control" placeholder="Edad" maxlength="50" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="number" id="txtPeso" name="txtPeso" value="{{empleado.peso}}" class="form-control" placeholder="Peso" maxlength="50" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="number" id="txtFCardiaca" name="txtFCardiaca" value="{{empleado.Fcardiaca}}" class="form-control" placeholder="Frecuencia cardiaca" maxlength="50" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="number" id="txtStress" name="txtStress" value="{{empleado.stress}}" class="form-control" placeholder="Nivel de Estrés" maxlength="50" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="number" id="txtSOSangre" name="txtSOSangre" value="{{empleado.SOsangre}}" class="form-control" placeholder="Saturacuin oxigeno en sangre" maxlength="50" required>
+                    </div>
+                        <button type="submit" class="btn btn-success btn-block text-light ">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
